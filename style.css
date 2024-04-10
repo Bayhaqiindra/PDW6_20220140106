@@ -1,0 +1,222 @@
+/* CSS Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Set variabel global */
+:root {
+  --base: 260; /* Hue warna dasar */
+  --background-body: hsla(var(--base), 19%, 6%, 1); /* Warna latar belakang badan */
+  --background-player: hsla(var(--base), 33%, 19%, 1); /* Warna latar belakang pemutar */
+  --buttons-color: hsla(var(--base), 9%, 89%, 1); /* Warna tombol */
+  --info-color: hsla(var(--base), 7%, 78%, 1); /* Warna informasi */
+  font-size: 62.5%; /* Ukuran font default */
+}
+
+/* Kelas untuk menyembunyikan elemen */
+.hide {
+  display: none;
+}
+
+/* Body styling */
+body {
+  display: grid;
+  font-size: 16px;
+  background: var(--background-body);
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Font family untuk body, #start, dan #end */
+body,
+#start,
+#end {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Main container styling */
+main {
+  display: grid;
+  align-self: center;
+  max-width: 65.7rem;
+  grid:
+    "playerOne playerTwo"
+    "playerOne playerThree";
+  grid-gap: clamp(1rem, 1rem + 2vw, 3.2rem);
+}
+
+/* Styling untuk bagian pemutar */
+.playerOne,
+.playerTwo,
+.playerThree {
+  background-color: var(--background-player);
+  border-radius: 1rem;
+}
+
+/* Styling untuk bagian pemutar dua dan tiga */
+.playerTwo,
+.playerThree {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  padding: 2.9rem;
+}
+
+/* Styling untuk bagian pemutar satu */
+.playerOne {
+  grid-area: playerOne;
+  padding: 3.8rem;
+  max-width: 26.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+/* Styling untuk gambar dalam bagian pemutar satu */
+.playerOne img {
+  width: 190px;
+  border-radius: 6px;
+}
+
+/* Styling untuk bagian pemutar dua */
+.playerTwo {
+  grid-area: playerTwo;
+  max-width: 35.7rem;
+  max-height: 26.7rem;
+}
+
+/* Styling untuk gambar dalam bagian pemutar dua dan tiga */
+.playerTwo img,
+.playerThree img {
+  width: 84px;
+  border-radius: 6px;
+}
+
+/* Styling untuk bagian pemutar tiga */
+.playerThree {
+  grid-area: playerThree;
+  max-width: 35.7rem;
+  max-height: 20rem;
+}
+
+/* Styling untuk kontainer album */
+.album {
+  display: flex;
+  align-items: center;
+  gap: 2.9rem;
+}
+
+/* Styling untuk heading 2 */
+h2 {
+  font-size: clamp(1.5rem, (2rem + 8vw), 2.4rem);
+  color: var(--buttons-color);
+  margin-bottom: 1rem;
+}
+
+/* Styling untuk paragraf */
+p {
+  font-size: clamp(1rem, (1.5rem + 8vw), 1.9rem);
+  color: var(--info-color);
+  opacity: 0.7;
+}
+
+/* Styling untuk tombol */
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  height: clamp(1.8rem, 2rem + 5vw, 2.8rem);
+}
+
+/* Styling untuk kontainer tombol */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling untuk durasi */
+.duration {
+  width: 100%;
+}
+
+/* Styling untuk progress bar */
+.bar {
+  width: 100%;
+  height: 0.6rem;
+  background-color: var(--info-color);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Styling untuk elemen progres */
+progress {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background-color: var(--info-color);
+}
+
+/* Styling untuk timer */
+.timer {
+  font-size: 1.4rem;
+  color: var(--info-color);
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling untuk footer */
+footer {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+/* Styling untuk path dalam SVG */
+svg path {
+  fill: var(--buttons-color);
+}
+
+/* Hover styling untuk path dalam SVG */
+svg path:hover {
+  fill: var(--info-color);
+  opacity: 0.3;
+}
+
+/* Styling untuk video */
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  z-index: -500;
+  opacity: 0.5;
+}
+
+/* Opacity styling */
+.opacity {
+  opacity: 0;
+}
+
+/* Media query untuk layar dengan lebar maksimum 700px */
+@media (max-width: 700px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    position: relative;
+  }
+  footer {
+    position: absolute;
+  }
+}
